@@ -1,0 +1,14 @@
+@import "../variables/index";
+.divider {
+  &-top {
+    border-top: 1px solid $border-color;
+    margin-top: $gutter;
+    padding-top: $gutter;
+  }
+
+  &-bottom {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $gutter;
+    padding-bottom: $gutter;
+  }
+}

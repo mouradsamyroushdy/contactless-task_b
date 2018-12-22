@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header-wrapper container justify-content-center fixed-top">
+    <mat-toolbar>
+      <h2>{{ title }}</h2>
+    </mat-toolbar>
+
+    <nav mat-tab-nav-bar>
+      <a
+        mat-tab-link
+        *ngFor="let nav of navigation"
+        [routerLink]="nav.route"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
+        >{{ nav.name }}
+      </a>
+    </nav>
+  </div>
+  <div class="" style="margin-top: 130px;"><router-outlet></router-outlet></div>
+</div>

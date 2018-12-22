@@ -1,0 +1,55 @@
+<mat-spinner *ngIf="postsLoading"></mat-spinner>
+<div *ngIf="!postsLoading">
+  <mat-card *ngFor="let post of posts">
+    <!-- Name -->
+    <h4>{{ post.title }}</h4>
+
+    <!-- Body -->
+    <p>{{ post.body }}</p>
+
+    <!-- Bottom -->
+    <div class="clearfix divider-top">
+      <!-- Links -->
+      <div class="float-left">
+        <!-- Comments -->
+        <div>
+          <!-- Toggle-Comments -->
+          <button
+            type="button"
+            (click)="onShowCommentsClicked(post)"
+            class="btn btn-link"
+          >
+            Comments
+          </button>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="float-right">
+        <!-- Delete-Comment -->
+        <button mat-raised-button (click)="onDeletePostClicked(post)">
+          Delete
+        </button>
+      </div>
+    </div>
+    <!-- Comments -->
+    <div *ngIf="post.showComments">
+      <div class="clearfix divider-top">
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let comment of post.comments">
+            <h4 matLine>{{ comment.name }}</h4>
+            <!-- Delete-Comment -->
+            <button
+              matTooltip="Delete Comment"
+              matTooltipPosition="above"
+              mat-icon-button
+              (click)="onDeleteCommentClicked(post, comment)"
+            >
+              <mat-icon matListIcon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card>
+</div>

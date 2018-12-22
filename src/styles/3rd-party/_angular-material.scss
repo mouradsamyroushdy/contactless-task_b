@@ -1,0 +1,15 @@
+@import "../variables/index";
+.header-wrapper {
+  background-color: $body-bg;
+}
+.mat-pseudo-checkbox {
+  &-checked {
+    &::after {
+      width: 10px !important;
+      height: 5px !important;
+    }
+  }
+}
+.mat-card {
+  margin-bottom: $gutter;
+}

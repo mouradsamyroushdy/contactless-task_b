@@ -1,0 +1,19 @@
+<div>
+  <mat-toolbar>{{ album.title }}</mat-toolbar>
+
+  <div class="pt-3 row">
+    <div
+      *ngFor="let photo of photos"
+      class="col-4 col-sm-3 col-md-2 col-lg-1 col-xs-1"
+    >
+      <a [href]="photo.url">
+        <img
+          [src]="photo.thumbnailUrl"
+          class="img-thumbnail"
+          [title]="photo.title"
+          [alt]="photo.title"
+        />
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<mat-spinner *ngIf="todosLoading"></mat-spinner>
+<div *ngIf="!todDsLoading">
+  <mat-card>
+    <mat-selection-list checkboxPosition="before">
+      <mat-list-option [selected]="toDo.completed" *ngFor="let toDo of toDos">
+        {{ toDo.title }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card>
+</div>

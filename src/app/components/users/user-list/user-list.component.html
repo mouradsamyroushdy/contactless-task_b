@@ -1,0 +1,43 @@
+<mat-spinner *ngIf="usersLoading"></mat-spinner>
+<div *ngIf="!usersLoading">
+  <mat-card *ngFor="let user of users">
+    <!-- Name -->
+    <h4>{{ user.name }}</h4>
+
+    <!-- Phone -->
+    <div><span>Phone:</span> {{ user.phone }}</div>
+
+    <!-- Company -->
+    <div><span>Company:</span> {{ user.company.name }}</div>
+
+    <!-- Website -->
+    <div><span>Website:</span> {{ user.website }}</div>
+
+    <!-- Address -->
+    <div><span>City:</span> {{ user.address.city }}</div>
+
+    <!-- Bottom -->
+    <div class="clearfix divider-top">
+      <!-- Links -->
+      <div class="float-left">
+        <div class="button-group">
+          <button class="btn btn-link" (click)="onPostsClicked(user)">
+            Posts
+          </button>
+          <button class="btn btn-link" (click)="onAlbumsClicked(user)">
+            Albums
+          </button>
+          <button class="btn btn-link" (click)="onToDosClicked(user)">
+            ToDos
+          </button>
+        </div>
+      </div>
+      <!-- Actions -->
+      <div class="float-right">
+        <button mat-raised-button (click)="onDeleteClicked(user)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

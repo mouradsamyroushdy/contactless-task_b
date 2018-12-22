@@ -1,0 +1,53 @@
+<mat-spinner *ngIf="albumsLoading"></mat-spinner>
+<div *ngIf="!albumsLoading">
+  <mat-card *ngFor="let album of albums">
+    <!-- Name/Details-URL -->
+    <div class="">
+      <button
+        type="button"
+        (click)="onShowDetailsClicked(album)"
+        class="btn btn-link p-0"
+      >
+        <p>{{ album.title }}</p>
+      </button>
+    </div>
+
+    <!-- Bottom -->
+    <div class="clearfix divider-top mt-0">
+      <!-- Links -->
+      <div class="float-left">
+        <!-- Comments -->
+        <div>
+          <!-- Toggle-Comments -->
+          <button
+            type="button"
+            (click)="onShowPhotosClicked(album)"
+            class="btn btn-link"
+          >
+            Photos
+          </button>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="float-right">
+        <!-- Delete-Album-->
+        <button mat-raised-button (click)="onDeleteAlbumClicked(album)">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div *ngIf="album.showPhotos">
+      <div class="clearfix divider-top row">
+        <div
+          *ngFor="let photo of album.photos"
+          class="col-4 col-sm-3 col-md-2 col-lg-1 col-xs-1"
+        >
+          <img [src]="photo.thumbnailUrl" class="img-thumbnail" />
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
