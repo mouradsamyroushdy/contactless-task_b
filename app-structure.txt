@@ -1,0 +1,42 @@
++---src
+|   +---app
+|   |   +---components
+|   |   |   +---albums
+|   |   |   |   +---album-details
+|   |   |   |   |   |---album-details.component.ts|.html|.scss|.spec.ts
+|   |   |   |   +---album-list
+|   |   |   |   |   |---album-list.component.ts|.html|.scss|.spec.ts
+|   |   |   +---posts
+|   |   |   |   +---post-details
+|   |   |   |   |    |---post-details.component.ts|.html|.scss|.spec.ts
+|   |   |   |   +---post-list
+|   |   |   |   |    +---post-list.component.ts|.html|.scss|.spec.ts
+|   |   |   +---users
+|   |   |   |   +---user-details
+|   |   |   |   |   |---user-details.component.ts|.html|.scss|.spec.ts
+|   |   |   |   +---user-list
+|   |   |   |   |   |---user-list.component.ts|.html|.scss|.spec.ts
+|   |   |   +---to-dos
+|   |   |   |   +---to-do-details
+|   |   |   |   |   |---to-do-details.component.ts|.html|.scss|.spec.ts
+|   |   |   |   +---to-dos-list
+|   |   |   |   |   |---to-do-list.component.ts|.html|.scss|.spec.ts
+|   |   +---models
+|   |   |   |---address.model.ts
+|   |   |   |---album-photo.model.ts
+|   |   |   |---album.model.ts
+|   |   |   |---app-configuration.model.ts
+|   |   |   |---comment.model.ts
+|   |   |   |---location-coordinates.model.ts
+|   |   |   |---post.model.ts
+|   |   |   |---to-do.model.ts
+|   |   |   |---user-company.model.ts
+|   |   |   |---user.model.ts
+|   |   +---services
+|   |   |   |---albums.service.ts|.spec.ts
+|   |   |   |---app-config.service.ts|.spec.ts
+|   |   |   |---logger.service.ts|.spec.ts
+|   |   |   |---posts.service.ts|.spec.ts
+|   |   |   |---to-dos.service.ts|.spec.ts
+|   |   |   |---users.service.ts|.spec.ts
+|   |   |---app.component.ts|.html|.scss|.spec.ts
