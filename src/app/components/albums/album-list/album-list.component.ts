@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { Album, AlbumPhoto } from "src/app/models/index";
-import { AlbumsService } from "src/app/services/albums.service";
+import { Album, AlbumPhoto } from 'src/app/models/index';
+import { AlbumsService } from 'src/app/services/albums.service';
 
 @Component({
-  selector: "app-album-list",
-  templateUrl: "./album-list.component.html",
-  styleUrls: ["./album-list.component.scss"]
+  selector: 'app-album-list',
+  templateUrl: './album-list.component.html',
+  styleUrls: ['./album-list.component.scss']
 })
 export class AlbumListComponent implements OnInit {
   public albums: [Album];
-  public albumsLoading: boolean = true;
+  public albumsLoading = true;
 
   constructor(
     private albumsService: AlbumsService,
@@ -20,13 +20,16 @@ export class AlbumListComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let userId = params.userId;
-      if (userId) this.getUserAlbumsList(userId);
-      else this.getAlbumList();
+      const userId = params.userId;
+      if (userId) {
+        this.getUserAlbumsList(userId);
+      } else {
+        this.getAlbumList();
+      }
     });
   }
   onShowDetailsClicked(album: Album) {
-    this.router.navigate(["/albums", album.id]);
+    this.router.navigate(['/albums', album.id]);
   }
   onShowPhotosClicked(album: Album) {
     if (album && album.showPhotos) {

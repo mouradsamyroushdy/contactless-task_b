@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { ToDo } from "src/app/models/to-do.model";
-import { ToDosService } from "src/app/services/to-dos.service";
-import { Route } from "@angular/compiler/src/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ToDo } from 'src/app/models/to-do.model';
+import { ToDosService } from 'src/app/services/to-dos.service';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-to-do-list",
-  templateUrl: "./to-do-list.component.html",
-  styleUrls: ["./to-do-list.component.scss"]
+  selector: 'app-to-do-list',
+  templateUrl: './to-do-list.component.html',
+  styleUrls: ['./to-do-list.component.scss']
 })
 export class ToDoListComponent implements OnInit {
   public toDos: [ToDo];
-  public toDosLoading: boolean = true;
+  public toDosLoading = true;
 
   constructor(
     private toDosService: ToDosService,
@@ -20,9 +20,12 @@ export class ToDoListComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let userId = params.userId;
-      if (userId) this.getUserToDoList(userId);
-      else this.getToDoList();
+      const userId = params.userId;
+      if (userId) {
+        this.getUserToDoList(userId);
+      } else {
+        this.getToDoList();
+      }
     });
   }
   onDeleteClicked(toDo: ToDo) {

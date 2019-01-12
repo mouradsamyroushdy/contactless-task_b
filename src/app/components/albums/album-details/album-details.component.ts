@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { AlbumsService } from "src/app/services";
-import { AlbumPhoto, Album } from "src/app/models";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { AlbumsService } from 'src/app/services';
+import { AlbumPhoto, Album } from 'src/app/models';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-album-details",
-  templateUrl: "./album-details.component.html",
-  styleUrls: ["./album-details.component.scss"]
+  selector: 'app-album-details',
+  templateUrl: './album-details.component.html',
+  styleUrls: ['./album-details.component.scss']
 })
 export class AlbumDetailsComponent implements OnInit {
   public photos: [AlbumPhoto];
@@ -18,7 +18,7 @@ export class AlbumDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      let albumId = params.id;
+      const albumId = params.id;
       this.getAlbumDetails(albumId);
       this.getAlbumPhotos(albumId);
     });

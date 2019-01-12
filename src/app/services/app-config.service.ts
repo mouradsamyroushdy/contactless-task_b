@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../environments/environment";
-import { AppConfiguration } from "../models/app-configuration";
-@Injectable({
-  providedIn: "root"
-})
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { AppConfiguration } from '../models/app-configuration';
+@Injectable({ providedIn: 'root' })
 export class AppConfig {
   static settings: AppConfiguration;
   constructor(private http: HttpClient) {}
+  getSettings(): AppConfiguration {
+    return AppConfig.settings;
+  }
   load() {
     const commonConfig = `assets/config/config.json`;
     const envConfig = `assets/config/config.${environment.name}.json`;

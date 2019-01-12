@@ -1,13 +1,13 @@
-import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
-import { User } from "src/app/models/index";
-import { UsersService } from "src/app/services";
+import { User } from 'src/app/models/index';
+import { UsersService } from 'src/app/services';
 
 @Component({
-  selector: "app-users",
-  templateUrl: "./user-list.component.html",
-  styleUrls: ["./user-list.component.scss"]
+  selector: 'app-users',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
   public users: [User];
@@ -22,18 +22,18 @@ export class UserListComponent implements OnInit {
     });
   }
   onShowDetailsClicked(user: User) {
-    this.router.navigate(["/users", user.id]);
+    this.router.navigate(['/users', user.id]);
   }
   onDeleteClicked(user: User) {
     this.users.splice(this.users.indexOf(user), 1);
   }
   onPostsClicked(user: User) {
-    this.router.navigate(["/posts"], { queryParams: { userId: user.id } });
+    this.router.navigate(['/posts'], { queryParams: { userId: user.id } });
   }
   onAlbumsClicked(user: User) {
-    this.router.navigate(["/albums"], { queryParams: { userId: user.id } });
+    this.router.navigate(['/albums'], { queryParams: { userId: user.id } });
   }
   onToDosClicked(user: User) {
-    this.router.navigate(["/todos"], { queryParams: { userId: user.id } });
+    this.router.navigate(['/todos'], { queryParams: { userId: user.id } });
   }
 }

@@ -1,4 +1,4 @@
-import { AlbumPhoto } from "../models/index";
+import { AlbumPhoto } from '../models/index';
 export class Album {
   constructor(
     public id: number,

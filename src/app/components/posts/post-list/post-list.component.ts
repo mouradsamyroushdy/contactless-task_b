@@ -1,21 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, ParamMap } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Observable } from "rxjs";
-import { filter, map, switchMap } from "rxjs/operators";
-import * as _ from "lodash";
+import { Observable } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
+import * as _ from 'lodash';
 
-import { Post, Comment } from "src/app/models/index";
-import { PostsService } from "src/app/services/posts.service";
+import { Post, Comment } from 'src/app/models/index';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
-  selector: "app-post-list",
-  templateUrl: "./post-list.component.html",
-  styleUrls: ["./post-list.component.scss"]
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
   public posts: [Post];
-  public postsLoading: boolean = true;
+  public postsLoading = true;
 
   constructor(
     private postsService: PostsService,
@@ -24,9 +24,12 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let userId = params.userId;
-      if (userId) this.getUserPostList(userId);
-      else this.getPostList();
+      const userId = params.userId;
+      if (userId) {
+        this.getUserPostList(userId);
+      } else {
+        this.getPostList();
+      }
     });
   }
   onShowCommentsClicked(post: Post) {

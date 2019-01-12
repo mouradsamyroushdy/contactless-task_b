@@ -1,16 +1,17 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
-import { Album, AlbumPhoto } from "../models/index";
-import { AppConfig } from "./app-config.service";
+import { Album, AlbumPhoto } from '../models/index';
+import { AppConfig } from './app-config.service';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class AlbumsService {
-  private endpoint: string = AppConfig.settings.apiServer.endpoint;
-  constructor(private http: HttpClient) {}
-
+  private endpoint: string;
+  constructor(private http: HttpClient, private appConfig: AppConfig) {
+    this.endpoint = appConfig.getSettings().apiServer.endpoint;
+  }
   getAlbumList(): Observable<[Album]> {
     return this.http.get<[Album]>(`${this.endpoint}albums`);
   }
